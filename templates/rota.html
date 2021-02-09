@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='theme.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" class="h1">Tenants</th>
+                <th scope="col" class="h1">Kitchen</th><!--table headers-->
+                <th scope="col" class="h1">Toilet and Bathroom</th>
+                <th scope="col" class="h1">Hoovering</th>
+                <th scope="col" class="h1">Break</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr><!--table row-->
+             
+            </tr>
+    
+            <tr>
+                {% for name1 in tenant1 %}
+                    <form class="form-horizontal" method="POST" action="/update/{{ name1.id }}">
+                        <td scope="row" class="h3">{{ name1.tenant_name1 }}<input class="form-control form-control-sm"type="text" name='tenant_1'><button type="submit" class="btn btn-secondary btn-sm">Update</button></td>
+                    </form>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for name2 in tenant2 %}
+                    <form class="form-horizontal" method="POST" action="/update/{{ name2.id }}">
+                        <td scope="row" class="h3">{{ name2.tenant_name2 }}<input class="form-control form-control-sm"type="text" name='tenant_2'><button type="submit" class="btn btn-secondary btn-sm">Update</button></td>
+                    </form>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for name3 in tenant3 %}
+                    <form class="form-horizontal" method="POST" action="/update2/{{ name3.id }}">
+                        <td scope="row" class="h3">{{ name3.tenant_name3 }}<input class="form-control form-control-sm"type="text" name='tenant_3'><button type="submit" class="btn btn-secondary btn-sm">Update</button></td>
+                    </form>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for name4 in tenant4 %}
+                    <form class="form-horizontal" method="POST" action="/update2/{{ name4.id }}">
+                        <td scope="row" class="h3">{{ name4.tenant_name4 }}<input class="form-control form-control-sm"type="text" name='tenant_4'><button type="submit" class="btn btn-secondary btn-sm">Update</button></td>
+                    </form>
+                {% endfor %}
+            </tr>
+       
+   
+           
+            <tr><!--table row-->
+                {% for rubbish_person in rubbish %}
+                    <form class="form-horizontal" method="POST" action="/update3/{{ rubbish_person.id }}">
+                        <th scope="row" class="h3">Rubbish removal by {{ rubbish_person.tenant_rubbish }}<input class="form-control form-control-sm"type="text" name='rubbish'><button type="submit" class="btn btn-secondary btn-sm">Update</button></th><!--table data-->
+                    </form>
+               {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <a href='/' class="btn btn-danger" role="button" aria-pressed="true">Back to rota</a>
+  </body>
+</html>

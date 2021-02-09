@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='theme.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th scope="col" class="h1">Tenants</th>
+                    <th scope="col" class="h1">Kitchen</th><!--table headers-->
+                    <th scope="col" class="h1">Toilet and Bathroom</th>
+                    <th scope="col" class="h1">Hoovering</th>
+                    <th scope="col" class="h1">Break</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                
+                <tr><!--table row-->
+                    {% for tenant1 in name1 %}
+                        <th scope="row" class="h3">{{ tenant1.tenant_name1 }}</th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for tenant2 in name2 %}
+                        <th scope="row" class="h3">{{ tenant2.tenant_name2 }}</th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for tenant3 in name3 %}
+                        <th scope="row" class="h3">{{ tenant3.tenant_name3 }}</th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for tenant4 in name4 %}
+                        <th scope="row" class="h3">{{ tenant4.tenant_name4 }}</th>
+                    {% endfor %}
+                </tr>
+         
+                </tbody>
+            </table>
+            {% for rubbish_person in rubbish %}
+                <div class="p-3 mb-2 bg-primary text-white h3">Rubbish removal by: {{  rubbish_person.tenant_rubbish  }}</div>
+            {% endfor %}
+            <div class="p-3 mb-2 bg-success text-white h3">Next cleaning from {{  date1 }} to {{  date2 }}</div>
+            <a href='/update' class="btn btn-danger" role="button" aria-pressed="true">Update the rota</a>
+        
+            
+  </body>
+</html>
