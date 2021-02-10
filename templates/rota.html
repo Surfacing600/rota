@@ -29,7 +29,7 @@
     
             <tr>
                 {% for name1 in tenant1 %}
-                    <form class="form-horizontal" method="POST" action="/update/{{ name1.id }}">
+                    <form class="form-horizontal" method="POST" action="/update/{{ name1.id}}">
                         <td scope="row" class="h3">{{ name1.tenant_name1 }}<input class="form-control form-control-sm"type="text" name='tenant_1'><button type="submit" class="btn btn-secondary btn-sm">Update</button></td>
                     </form>
                 {% endfor %}
