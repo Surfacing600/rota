@@ -3,7 +3,7 @@ import sqlite3
 
 
 def connect_db(): #connects to the database
-    sql = sqlite3.connect('postgres://jspcxodfhzzyhf:390459475d7d8fe4ed4825fa3cb45fc36e035665762122112cee83a90e1d2e9e@ec2-3-222-11-129.compute-1.amazonaws.com:5432/d8gn9j0gp84qm0')
+    sql = sqlite3.connect('/Users/Dmitry/Desktop/electronic_rota/database.db')
     sql.row_factory = sqlite3.Row #to get dictionaries instead of tuples when you access the rows
     return sql
 
