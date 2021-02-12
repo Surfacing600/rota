@@ -20,13 +20,13 @@ def close_db(error):
 def rota():
 
     db = get_db()#initialise the database
-    db.execute('select * from tenant1')
+    db.execute('select * from tenant1 order by id')#ordering needed for Postgress to avoid the values being clustered in one column
     name1 = db.fetchall()
-    db.execute('select * from tenant2')
+    db.execute('select * from tenant2 order by id')
     name2 = db.fetchall()
-    db.execute('select * from tenant3')
+    db.execute('select * from tenant3 order by id')
     name3 = db.fetchall()
-    db.execute('select * from tenant4')
+    db.execute('select * from tenant4 order by id')
     name4 = db.fetchall()
     db.execute('select * from rubbish_removal')
     rubbish = db.fetchall()
@@ -42,20 +42,20 @@ def rota():
 def update():
 
     db = get_db()#initialise the database
-    db.execute('select * from tenant1')
+    db.execute('select * from tenant1 order by id')#ordering needed for Postgress to avoid the values jumping from one place to the next
     tenant1 = db.fetchall()
-    db.execute('select * from tenant2')
+    db.execute('select * from tenant2 order by id')
     tenant2 = db.fetchall()
-    db.execute('select * from tenant3')
+    db.execute('select * from tenant3 order by id')
     tenant3 = db.fetchall()
-    db.execute('select * from tenant4')
+    db.execute('select * from tenant4 order by id')
     tenant4 = db.fetchall()
     db.execute('select * from rubbish_removal')
     rubbish = db.fetchall()
 
     if request.method == 'POST':
 
-        return redirect(url_for('/'))
+        return redirect(url_for('rota'))
     
     return render_template('rota.html', tenant1=tenant1, tenant2=tenant2, tenant3=tenant3, tenant4=tenant4, rubbish=rubbish)
 
