@@ -50,7 +50,7 @@
             {% for rubbish_person in rubbish %}
                 <div class="p-3 mb-2 bg-primary text-white h3">Rubbish removal by: {{  rubbish_person.tenant_rubbish  }}</div>
             {% endfor %}
-            <div class="p-3 mb-2 bg-success text-white h3">Next cleaning from {{  date1 }} to {{  date2 }}</div>
+            <div class="p-3 mb-2 bg-success text-white h3">Next cleaning from {{ converted_date1 }} to {{  converted_date2 }}</div>
             <a href='/update' class="btn btn-danger" role="button" aria-pressed="true">Update the rota</a>
         
             

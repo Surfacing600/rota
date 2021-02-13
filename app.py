@@ -1,6 +1,6 @@
 from flask import Flask, render_template, g, request, session, redirect, url_for
 from database import get_db
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
@@ -34,9 +34,10 @@ def rota():
 
     date1 = date.today()+ timedelta(days=11)
     date2 = date.today()+ timedelta(days=12)
-
+    converted_date1 = datetime.strftime(date1, "%B, %d, %Y")
+    converted_date2 = datetime.strftime(date2, "%B, %d, %Y")
     
-    return render_template('update.html', name1=name1, name2=name2, name3=name3, name4=name4, date1=date1, date2=date2, rubbish=rubbish)
+    return render_template('update.html', name1=name1, name2=name2, name3=name3, name4=name4, converted_date1=converted_date1, converted_date2=converted_date2, rubbish=rubbish)
 
 @app.route('/update', methods=['GET', 'POST'])
 def update():
